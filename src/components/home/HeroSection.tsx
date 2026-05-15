@@ -6,12 +6,10 @@ import Button from '../common/Button';
 const HeroSection = () => {
   return (
     <section className="relative h-screen overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url(https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=1920&h=1080&fit=crop)',
-        }}
+      <img 
+        src="/foxiangge-new.jpg" 
+        alt="佛香阁"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/50" />
