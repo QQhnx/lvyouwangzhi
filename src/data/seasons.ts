@@ -70,7 +70,7 @@ export const seasons: Season[] = [
       {
         title: '万寿山丹枫',
         description: '秋天万寿山的枫叶红了，层层叠叠，色彩斑斓，与古建筑相映成趣。',
-        image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=600&h=400&fit=crop',
+        image: '/foxiangge-new.jpg',
       },
       {
         title: '满园桂香',
@@ -100,7 +100,7 @@ export const seasons: Season[] = [
       {
         title: '佛香阁雪景',
         description: '雪后的佛香阁红墙金瓦白雪，色彩鲜明，宛如一幅中国水墨画。',
-        image: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=600&h=400&fit=crop',
+        image: '/foxiangge-new.jpg',
       },
       {
         title: '昆明湖冰场',

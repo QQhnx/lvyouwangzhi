@@ -7,9 +7,9 @@ export const attractions: Attraction[] = [
     tagline: '八面三层四重檐，全园构图中心',
     category: 'building',
     tags: ['标志性建筑', '登高望远', '佛教文化'],
-    heroImage: 'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=1200&h=800&fit=crop',
+    heroImage: '/foxiangge-new.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1599707367072-cd6ada2bc375?w=800&h=600&fit=crop',
+      '/foxiangge-new.jpg',
       'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=600&fit=crop',
       'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop',
     ],
