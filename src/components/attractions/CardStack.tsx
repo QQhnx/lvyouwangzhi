@@ -13,9 +13,12 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'prev' | 'next' | null>(null);
   const [isScrollLocked, setIsScrollLocked] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLDivElement>(null);
   const isAnimating = useRef(false);
   const lockTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const boundaryScrollTimeout = useRef<NodeJS.Timeout | null>(null);
 
   const getCardTransform = useCallback((index: number, current: number) => {
     const offset = index - current;
@@ -53,14 +56,24 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
   }, [attractions.length]);
 
   const handleWheel = useCallback((e: WheelEvent) => {
-    if (isAnimating.current) return;
+    // 只有当卡片区域占满屏幕时才阻止默认滚动
+    if (!isFullscreen) {
+      return;
+    }
     
     e.preventDefault();
+    
+    if (isAnimating.current) return;
     
     const scrollingDown = e.deltaY > 0;
     const scrollingUp = e.deltaY < 0;
     
     if (scrollingDown && currentIndex < attractions.length - 1) {
+      if (boundaryScrollTimeout.current) {
+        clearTimeout(boundaryScrollTimeout.current);
+        boundaryScrollTimeout.current = null;
+      }
+      
       setDirection('next');
       setIsScrollLocked(true);
       isAnimating.current = true;
@@ -71,6 +84,11 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       }, 400);
       
     } else if (scrollingUp && currentIndex > 0) {
+      if (boundaryScrollTimeout.current) {
+        clearTimeout(boundaryScrollTimeout.current);
+        boundaryScrollTimeout.current = null;
+      }
+      
       setDirection('prev');
       setIsScrollLocked(true);
       isAnimating.current = true;
@@ -81,26 +99,35 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       }, 400);
       
     } else if (scrollingDown && currentIndex === attractions.length - 1) {
+      if (boundaryScrollTimeout.current) {
+        clearTimeout(boundaryScrollTimeout.current);
+      }
+      
       setIsScrollLocked(false);
-      setTimeout(() => {
+      boundaryScrollTimeout.current = setTimeout(() => {
         const nextSection = document.getElementById('seasons');
         if (nextSection) {
           nextSection.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, 800);
       
     } else if (scrollingUp && currentIndex === 0) {
+      if (boundaryScrollTimeout.current) {
+        clearTimeout(boundaryScrollTimeout.current);
+      }
+      
       setIsScrollLocked(false);
-      setTimeout(() => {
+      boundaryScrollTimeout.current = setTimeout(() => {
         const prevSection = document.getElementById('hero');
         if (prevSection) {
           prevSection.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 100);
+      }, 800);
     }
-  }, [currentIndex, attractions.length]);
+  }, [isFullscreen, currentIndex, attractions.length]);
 
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (!isFullscreen) return;
     if (isAnimating.current) return;
     
     if (e.key === 'ArrowDown' && currentIndex < attractions.length - 1) {
@@ -124,7 +151,7 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
         nextSection.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [currentIndex, attractions.length]);
+  }, [isFullscreen, currentIndex, attractions.length]);
 
   useEffect(() => {
     const container = containerRef.current;
@@ -140,8 +167,36 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       }
       window.removeEventListener('keydown', handleKeyDown);
       if (lockTimeoutRef.current) clearTimeout(lockTimeoutRef.current);
+      if (boundaryScrollTimeout.current) clearTimeout(boundaryScrollTimeout.current);
     };
   }, [handleWheel, handleKeyDown]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const isVisible = entry.isIntersecting;
+          const ratio = entry.intersectionRatio;
+          
+          // 当卡片区域占满至少 80% 的视口时，认为是全屏状态
+          setIsFullscreen(isVisible && ratio >= 0.8);
+        });
+      },
+      {
+        threshold: [0.1, 0.5, 0.8, 1.0],
+        rootMargin: '-50px',
+      }
+    );
+
+    observer.observe(section);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const handleCardClick = (index: number) => {
     if (index === currentIndex) {
@@ -165,7 +220,10 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
   };
 
   return (
-    <div className="h-screen bg-paper flex flex-col relative">
+    <div 
+      ref={sectionRef}
+      className="h-screen bg-paper flex flex-col relative"
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -179,7 +237,9 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
 
       <div
         ref={containerRef}
-        className="relative w-full flex-grow perspective-[1000px] overflow-hidden cursor-grab active:cursor-grabbing"
+        className={`relative w-full flex-grow perspective-[1000px] overflow-hidden ${
+          isFullscreen ? 'cursor-grab active:cursor-grabbing' : ''
+        }`}
       >
         <AnimatePresence mode="popLayout">
           {attractions.map((attraction, index) => {

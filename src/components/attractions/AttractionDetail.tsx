@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Ruler, Camera } from 'lucide-react';
@@ -12,6 +13,12 @@ const AttractionDetail = () => {
 
   const attraction = attractions.find(a => a.id === id);
 
+  useEffect(() => {
+    if (attraction) {
+      setCurrentAttraction(attraction.id);
+    }
+  }, [attraction, setCurrentAttraction]);
+
   if (!attraction) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -19,8 +26,6 @@ const AttractionDetail = () => {
       </div>
     );
   }
-
-  setCurrentAttraction(attraction.id);
 
   const relatedAttractions = attraction.relatedIds
     .map(relatedId => attractions.find(a => a.id === relatedId))
