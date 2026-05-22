@@ -65,7 +65,7 @@ function App() {
     <BrowserRouter>
       <div className="min-h-screen flex flex-col">
         <Navigation />
-        <main className="flex-grow">
+        <main className="flex-grow w-full">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/attraction/:id" element={<AttractionDetail />} />
