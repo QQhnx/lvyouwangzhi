@@ -56,7 +56,6 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
   }, [attractions.length]);
 
   const handleWheel = useCallback((e: WheelEvent) => {
-    // 只有当卡片区域占满屏幕时才阻止默认滚动
     if (!isFullscreen) {
       return;
     }
@@ -181,7 +180,6 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
           const isVisible = entry.isIntersecting;
           const ratio = entry.intersectionRatio;
           
-          // 当卡片区域占满至少 80% 的视口时，认为是全屏状态
           setIsFullscreen(isVisible && ratio >= 0.8);
         });
       },
