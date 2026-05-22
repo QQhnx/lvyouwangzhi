@@ -5,7 +5,7 @@ import Button from '../common/Button';
 
 const HeroSection = () => {
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section id="hero" className="relative h-screen overflow-hidden">
       <img 
         src="/foxiangge-new.jpg" 
         alt="佛香阁"
