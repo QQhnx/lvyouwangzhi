@@ -8,26 +8,31 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#8B1A1A',
-          light: '#B85450',
-          dark: '#5C0F0F',
+          DEFAULT: '#4A1A4A',
+          light: '#6B3A6B',
+          dark: '#2A0A2A',
         },
         accent: {
-          DEFAULT: '#D4A574',
-          light: '#E8C9A0',
+          DEFAULT: '#C9A96E',
+          light: '#E0C890',
         },
-        garden: '#2D5A3D',
-        lake: '#4A7C8C',
+        gold: '#C9A96E',
+        purple: '#4A1A4A',
+        red: '#8B1A1A',
+        black: '#1A1A1A',
+        garden: '#2D4A2D',
+        lake: '#3A5A6A',
         paper: '#F5F0E8',
-        border: '#E0D5C5',
+        border: '#4A1A4A',
       },
       fontFamily: {
-        serif: ['Noto Serif SC', 'Songti SC', 'SimSun', 'serif'],
-        sans: ['Noto Sans SC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        serif: ['STFangsong', '华文仿宋', 'FangSong', 'SimSun', 'serif'],
+        sans: ['STFangsong', '华文仿宋', 'FangSong', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
       },
       boxShadow: {
-        'card': '0 4px 20px rgba(0, 0, 0, 0.1)',
-        'card-hover': '0 12px 40px rgba(0, 0, 0, 0.15)',
+        'card': '0 2px 16px rgba(26, 26, 26, 0.08)',
+        'card-hover': '0 8px 32px rgba(74, 26, 74, 0.15)',
+        'card-elevated': '0 4px 24px rgba(74, 26, 74, 0.10), 0 1px 4px rgba(0,0,0,0.06)',
       },
       animation: {
         'fade-in-up': 'fadeInUp 0.6s ease-out',

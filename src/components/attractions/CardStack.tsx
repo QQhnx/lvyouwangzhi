@@ -12,16 +12,31 @@ interface CardStackProps {
 const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState<'prev' | 'next' | null>(null);
-  const [isScrollLocked, setIsScrollLocked] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
   const isAnimating = useRef(false);
-  const lockTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const boundaryScrollTimeout = useRef<NodeJS.Timeout | null>(null);
+  const lockTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const boundaryScrollTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const lastWheelTime = useRef(0);
+  const wheelThreshold = 50; // 毫秒内只处理一次滚轮
+
+  const visibleCardRange = 3;
 
   const getCardTransform = useCallback((index: number, current: number) => {
     const offset = index - current;
+    
+    if (Math.abs(offset) > visibleCardRange) {
+      return {
+        x: 0,
+        y: offset > 0 ? 200 : -200,
+        rotate: offset * 2.5,
+        scale: 0.85,
+        zIndex: 0,
+        opacity: 0,
+        display: 'none' as const,
+      };
+    }
     
     if (offset === 0) {
       return { 
@@ -31,27 +46,34 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
         scale: 1,
         zIndex: attractions.length,
         opacity: 1,
+        display: 'block' as const,
       };
     }
+    
+    const absOffset = Math.abs(offset);
+    const scale = 1 - absOffset * 0.04;
+    const opacity = 1 - absOffset * 0.15;
     
     if (offset > 0) {
       return {
         x: 0,
-        y: Math.min(offset * 18, 120),
-        rotate: offset * 2.5,
-        scale: 1 - offset * 0.03,
+        y: Math.min(offset * 30, 120),
+        rotate: offset * 1.5,
+        scale: Math.max(scale, 0.88),
         zIndex: attractions.length - offset,
-        opacity: 1 - offset * 0.12,
+        opacity: Math.max(opacity, 0),
+        display: 'block' as const,
       };
     }
     
     return {
       x: 0,
-      y: Math.max(offset * 18, -120),
-      rotate: offset * 2.5,
-      scale: 1 - Math.abs(offset) * 0.03,
-      zIndex: attractions.length - Math.abs(offset),
-      opacity: 1 - Math.abs(offset) * 0.12,
+      y: Math.max(offset * 30, -120),
+      rotate: offset * 1.5,
+      scale: Math.max(scale, 0.88),
+      zIndex: attractions.length - absOffset,
+      opacity: Math.max(opacity, 0),
+      display: 'block' as const,
     };
   }, [attractions.length]);
 
@@ -60,68 +82,93 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       return;
     }
     
+    // 检查鼠标是否在边缘区域（上下各 80px）
+    const target = e.currentTarget as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const mouseY = e.clientY - rect.top;
+    const edgeMargin = 80;
+    const isTopEdge = mouseY < edgeMargin;
+    const isBottomEdge = mouseY > rect.height - edgeMargin;
+    
+    // 检查卡片是否完全显示（从顶部到底部都在视口中）
+    const isCardBottomAligned = rect.bottom <= window.innerHeight + 1;
+    
+    // 优先级：卡片边缘滑动功能 > 卡片底部锁定
+    if (isTopEdge || isBottomEdge) {
+      return;
+    }
+    
+    const deltaY = e.deltaY;
+    
+    // 移除卡片底部锁定功能，避免卡片没有完全显示就锁定网页滑动
+    // 直接阻止默认滚动，正常处理翻页
     e.preventDefault();
     
     if (isAnimating.current) return;
     
-    const scrollingDown = e.deltaY > 0;
-    const scrollingUp = e.deltaY < 0;
+    const now = Date.now();
+    // 节流：防止快速滑动时多次触发
+    if (now - lastWheelTime.current < wheelThreshold) {
+      return;
+    }
     
-    if (scrollingDown && currentIndex < attractions.length - 1) {
+    if (deltaY > 30 && currentIndex < attractions.length - 1) {
+      lastWheelTime.current = now;
       if (boundaryScrollTimeout.current) {
         clearTimeout(boundaryScrollTimeout.current);
         boundaryScrollTimeout.current = null;
       }
       
       setDirection('next');
-      setIsScrollLocked(true);
       isAnimating.current = true;
       if (lockTimeoutRef.current) clearTimeout(lockTimeoutRef.current);
       lockTimeoutRef.current = setTimeout(() => {
         setCurrentIndex(prev => prev + 1);
         isAnimating.current = false;
-      }, 400);
+      }, 300);
       
-    } else if (scrollingUp && currentIndex > 0) {
+    } else if (deltaY < -30 && currentIndex > 0) {
+      lastWheelTime.current = now;
       if (boundaryScrollTimeout.current) {
         clearTimeout(boundaryScrollTimeout.current);
         boundaryScrollTimeout.current = null;
       }
       
       setDirection('prev');
-      setIsScrollLocked(true);
       isAnimating.current = true;
       if (lockTimeoutRef.current) clearTimeout(lockTimeoutRef.current);
       lockTimeoutRef.current = setTimeout(() => {
         setCurrentIndex(prev => prev - 1);
         isAnimating.current = false;
-      }, 400);
+      }, 300);
       
-    } else if (scrollingDown && currentIndex === attractions.length - 1) {
+    } else if (deltaY > 50 && currentIndex === attractions.length - 1) {
+      lastWheelTime.current = now;
       if (boundaryScrollTimeout.current) {
         clearTimeout(boundaryScrollTimeout.current);
       }
       
-      setIsScrollLocked(false);
       boundaryScrollTimeout.current = setTimeout(() => {
         const nextSection = document.getElementById('seasons');
         if (nextSection) {
+          setIsFullscreen(false);
           nextSection.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 800);
+      }, 400);
       
-    } else if (scrollingUp && currentIndex === 0) {
+    } else if (deltaY < -50 && currentIndex === 0) {
+      lastWheelTime.current = now;
       if (boundaryScrollTimeout.current) {
         clearTimeout(boundaryScrollTimeout.current);
       }
       
-      setIsScrollLocked(false);
       boundaryScrollTimeout.current = setTimeout(() => {
         const prevSection = document.getElementById('hero');
         if (prevSection) {
+          setIsFullscreen(false);
           prevSection.scrollIntoView({ behavior: 'smooth' });
         }
-      }, 800);
+      }, 400);
     }
   }, [isFullscreen, currentIndex, attractions.length]);
 
@@ -135,16 +182,15 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       setTimeout(() => {
         setCurrentIndex(prev => prev + 1);
         isAnimating.current = false;
-      }, 400);
+      }, 300);
     } else if (e.key === 'ArrowUp' && currentIndex > 0) {
       setDirection('prev');
       isAnimating.current = true;
       setTimeout(() => {
         setCurrentIndex(prev => prev - 1);
         isAnimating.current = false;
-      }, 400);
+      }, 300);
     } else if (e.key === 'Escape' || e.key === 'Enter') {
-      setIsScrollLocked(false);
       const nextSection = document.getElementById('seasons');
       if (nextSection) {
         nextSection.scrollIntoView({ behavior: 'smooth' });
@@ -205,34 +251,18 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
       setTimeout(() => {
         setCurrentIndex(index);
         isAnimating.current = false;
-      }, 400);
-    }
-  };
-
-  const handleSkip = () => {
-    setIsScrollLocked(false);
-    const nextSection = document.getElementById('seasons');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
   };
 
   return (
     <div 
       ref={sectionRef}
-      className="h-screen bg-paper flex flex-col relative"
+      className="h-screen flex flex-col relative"
+      style={{
+        background: 'linear-gradient(180deg, #F7F4EC 0%, #EDE8DD 100%)'
+      }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-2 px-4 pt-4 flex-shrink-0"
-      >
-        <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary">
-          探索八大秘境
-        </h2>
-      </motion.div>
-
       <div
         ref={containerRef}
         className={`relative w-full flex-grow perspective-[1000px] overflow-hidden ${
@@ -243,40 +273,47 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
           {attractions.map((attraction, index) => {
             const transform = getCardTransform(index, currentIndex);
             
+            if (transform.display === 'none') {
+              return null;
+            }
+            
+            const isLeaving = direction === 'next' 
+              ? index < currentIndex 
+              : direction === 'prev' 
+                ? index > currentIndex 
+                : false;
+            
             return (
               <motion.div
                 key={attraction.id}
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
+                initial={{ opacity: 0, scale: 0.85, y: transform.y }}
                 animate={{
-                  x: direction === 'next' && index < currentIndex 
-                    ? -500 
-                    : direction === 'prev' && index > currentIndex 
-                      ? 500 
-                      : transform.x,
+                  x: isLeaving 
+                    ? (direction === 'next' ? -600 : 600) 
+                    : transform.x,
                   y: transform.y,
-                  rotate: direction === 'next' && index < currentIndex 
-                    ? -15 
-                    : direction === 'prev' && index > currentIndex 
-                      ? 15 
-                      : transform.rotate,
+                  rotate: isLeaving 
+                    ? (direction === 'next' ? -20 : 20) 
+                    : transform.rotate,
                   scale: transform.scale,
-                  opacity: direction === 'next' && index < currentIndex 
-                    ? 0 
-                    : direction === 'prev' && index > currentIndex 
-                      ? 0 
-                      : transform.opacity,
+                  opacity: isLeaving ? 0 : transform.opacity,
                   zIndex: transform.zIndex,
                 }}
                 exit={{
-                  x: direction === 'next' ? 500 : -500,
-                  rotate: direction === 'next' ? 15 : -15,
+                  x: direction === 'next' ? 600 : -600,
+                  rotate: direction === 'next' ? 20 : -20,
                   opacity: 0,
+                  scale: 0.8,
                 }}
                 transition={{
-                  type: 'spring',
-                  stiffness: 250,
-                  damping: 25,
+                  type: 'tween',
+                  duration: 0.3,
+                  ease: [0.25, 0.1, 0.25, 1],
+                }}
+                style={{
+                  willChange: 'transform, opacity',
+                  transformStyle: 'preserve-3d',
+                  backfaceVisibility: 'hidden',
                 }}
                 className="absolute inset-0"
                 onClick={() => handleCardClick(index)}
@@ -295,18 +332,6 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
           total={attractions.length} 
           onSelect={handleCardClick}
         />
-        
-        {currentIndex === attractions.length - 1 && (
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="absolute bottom-8 right-8 px-6 py-3 bg-white/90 backdrop-blur-sm text-primary rounded-full shadow-lg hover:bg-white hover:shadow-xl transition-all duration-300 flex items-center gap-2"
-            onClick={handleSkip}
-          >
-            <span>跳过查看</span>
-            <span className="text-sm opacity-60">↓</span>
-          </motion.button>
-        )}
       </div>
     </div>
   );

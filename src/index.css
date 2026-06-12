@@ -3,81 +3,150 @@
 @tailwind utilities;
 
 :root {
-  --primary: #8B1A1A;
-  --primary-light: #B85450;
-  --primary-dark: #5C0F0F;
-  --accent: #D4A574;
-  --accent-light: #E8C9A0;
-  --green: #2D5A3D;
-  --lake-blue: #4A7C8C;
+  --primary: #4A1A4A;
+  --primary-light: #6B3A6B;
+  --primary-dark: #2A0A2A;
+  --accent: #C9A96E;
+  --accent-light: #E0C890;
+  --gold: #C9A96E;
+  --purple: #4A1A4A;
+  --red: #8B1A1A;
+  --black: #1A1A1A;
+  --green: #2D4A2D;
   --bg-primary: #F5F0E8;
   --bg-secondary: #FFFFFF;
-  --text-primary: #2C2C2C;
+  --text-primary: #1A1A1A;
   --text-secondary: #666666;
-  --border: #E0D5C5;
+  --border: #4A1A4A;
 }
 
 @layer base {
   html {
     @apply scroll-smooth;
   }
-  
+
   body {
-    @apply bg-paper text-gray-800 font-sans antialiased m-0 p-0;
+    @apply text-gray-800 font-sans antialiased m-0 p-0;
+    font-family: 'STFangsong', '华文仿宋', 'FangSong', serif;
+    background-color: #F5F0E8;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+
+  h1 {
+    @apply text-4xl md:text-5xl font-bold leading-tight tracking-wide font-serif;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl font-bold leading-snug tracking-normal font-serif;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-semibold leading-snug font-serif;
+  }
+
+  p {
+    @apply leading-relaxed text-gray-700;
   }
 }
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-6 py-3 rounded-lg 
+    @apply bg-primary text-accent px-8 py-3.5 rounded-lg
            hover:bg-primary-light transition-all duration-300
-           hover:-translate-y-0.5 hover:shadow-lg;
+           hover:-translate-y-0.5 hover:shadow-lg
+           active:scale-[0.97] active:shadow-md
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent
+           disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
   }
-  
+
   .btn-secondary {
-    @apply bg-transparent border-2 border-primary text-primary
-           px-6 py-3 rounded-lg hover:bg-primary hover:text-white
-           transition-all duration-300;
+    @apply bg-transparent border-2 border-accent text-accent
+           px-6 py-3 rounded-xl hover:bg-accent hover:text-primary
+           transition-all duration-300
+           active:scale-[0.97]
+           focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent;
   }
-  
+
   .card {
-    @apply bg-white rounded-2xl p-6 shadow-card
+    @apply bg-white rounded-3xl p-8 shadow-card
            hover:shadow-card-hover transition-shadow duration-300;
   }
-  
+
   .nav-link {
-    @apply relative text-gray-700 hover:text-primary
+    @apply relative text-gray-700 hover:text-accent
            transition-colors duration-200;
+    background-image: linear-gradient(to right, #C9A96E, #C9A96E);
+    background-size: 0% 2px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.3s ease, color 0.2s ease;
   }
-  
-  .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-0 h-0.5
-           bg-primary transition-all duration-300;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
+
+  .nav-link:hover {
+    background-size: 100% 2px;
   }
 }
 
 @layer utilities {
   .text-gradient {
     @apply bg-clip-text text-transparent
-           bg-gradient-to-r from-primary to-accent;
+           bg-gradient-to-r from-accent to-gold;
   }
-  
+
   .paper-texture {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     @apply opacity-5 pointer-events-none;
   }
-  
+
   .parallax-bg {
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
+  }
+
+  .divider-ornament {
+    @apply flex items-center gap-4 text-accent/30;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '';
+    @apply flex-1 h-px bg-current;
+  }
+
+  .corner-accent {
+    position: relative;
+  }
+
+  .corner-accent::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 24px;
+    height: 24px;
+    border-top: 2px solid currentColor;
+    border-left: 2px solid currentColor;
+    @apply text-accent/30 rounded-tl-lg;
+  }
+
+  .decorative-rule {
+    @apply w-px bg-accent/30;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-bold text-primary text-center mb-4;
+  }
+
+  .gold-text {
+    @apply text-accent;
+  }
+
+  .gold-rule {
+    @apply h-px bg-accent/20;
+  }
+
+  .chinese-frame {
+    box-shadow: inset 0 0 0 1px rgba(201, 169, 110, 0.15);
+    @apply rounded-sm;
   }
 }

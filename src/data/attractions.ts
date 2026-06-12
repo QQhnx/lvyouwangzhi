@@ -10,12 +10,12 @@ export const attractions: Attraction[] = [
     heroImage: '/foxiangge-new.jpg',
     gallery: [
       '/foxiangge-new.jpg',
-      'https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop',
+      '/佛香阁.jpg',
+      '/fogege.jpg',
     ],
     cultureContent: {
-      history: '佛香阁始建于清乾隆年间，原为九层佛塔。1860年被英法联军焚毁，光绪年间重建为现在的三层阁楼。',
-      architecture: '佛香阁高41米，八面三层四重檐攒尖顶，黄色琉璃瓦覆盖。建筑坐落在万寿山前山中心部位，成为全园的构图中心。阁内供奉有铜铸金裹千手观音菩萨。',
+      history: '佛香阁始建于清乾隆年间，原设计为九层延寿塔，开工14年已修至第八层时，乾隆亲临阅视后下旨拆毁，改建为三层佛香阁，与风水忌讳及宗教仪式考量有关。1860年被英法联军焚毁，光绪年间重建为现在的三层阁楼。',
+      architecture: '佛香阁高41米，建在20米高八边形石造台基之上，台基束腰位置雕刻精美佛教题材石刻。八面三层四重檐攒尖顶，黄色琉璃瓦覆盖，顶置鎏金宝顶。建筑坐落在万寿山前山中心部位，成为全园的构图中心。阁内原供奉明代铜铸千手观音立像，光绪重建后改为铜铸金裹千手观音坐像。阁外檐匾"佛香阁"为光绪御书，三层檐下分别悬挂乾隆御笔"云外天香"、"气象昭回"、"式扬风教"匾额。',
       significance: '佛香阁不仅是颐和园的标志性建筑，更是中国古典园林建筑艺术的杰出代表，承载着深厚的佛教文化内涵。登阁远眺，可将昆明湖和十七孔桥尽收眼底。'
     },
     archives: {
@@ -23,7 +23,7 @@ export const attractions: Attraction[] = [
       builtYear: '光绪十七年（1891年）',
       features: ['八面三层四重檐', '黄色琉璃瓦', '铜铸金裹千手观音', '全园最高点'],
     },
-    coordinates: { x: 50, y: 30 },
+    coordinates: { x: 49, y: 10 },
     relatedIds: ['chang-lang', 'shiqikong-bridge', 'paiyun-dian'],
   },
   {
@@ -32,14 +32,14 @@ export const attractions: Attraction[] = [
     tagline: '世界最长画廊，彩画精美绝伦',
     category: 'building',
     tags: ['世界最长', '彩画', '世界文化遗产'],
-    heroImage: 'https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?w=1200&h=800&fit=crop',
+    heroImage: '/长廊内部视角.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1578469550956-0e16b69c6a3d?w=800&h=600&fit=crop',
+      '/长廊内部视角.jpg',
+      '/昆明湖畔.jpg',
     ],
     cultureContent: {
-      history: '长廊始建于乾隆时期，与万寿山同期建造。1860年被英法联军焚毁，光绪时期重建。全长728米，共273间。',
-      architecture: '长廊为穿斗式木结构，卷棚屋顶，黄色琉璃瓦覆顶。廊间设置留佳、寄澜、秋水、清遥四座八角攒尖亭，将长廊分为五段。',
+      history: '长廊始建于乾隆十五年，最初是乾隆为其母孝圣宪皇后遮阳避雨而建。乾隆六下江南，因母亲钮祜禄氏畏晒，命人沿昆明湖北岸修建遮荫走廊，仿江南游廊形制。1860年被英法联军焚毁，光绪时期重建，耗时6年完成，廊间彩画大幅增加。全长728米，共273间。',
+      architecture: '长廊为穿斗式木结构，歇山卷棚顶，绿色琉璃瓦覆顶。梁枋采用苏式彩画，以"包袱锦"技法绘就——外框仿锦缎图案，内绘人物故事、山水花鸟、历史典故三类题材。廊间设置留佳（留住佳景）、寄澜（寄情波澜）、秋水（秋水共长天一色）、清遥（清旷高远）四座八角重檐亭，将长廊分为五段，兼具节奏与实用功能。廊间设62间倒挂楣子。',
       significance: '长廊以其独特的建筑形式和精美的彩画艺术闻名于世。廊内彩画题材广泛，包括人物、山水、花鸟等14000余幅，被誉为"世界上最长的画廊"。'
     },
     archives: {
@@ -49,7 +49,7 @@ export const attractions: Attraction[] = [
       rebuiltYear: '光绪十二年（1886年）',
       features: ['全长728米', '273间', '14000余幅彩画', '四座八角亭'],
     },
-    coordinates: { x: 45, y: 50 },
+    coordinates: { x: 46, y: 21 },
     relatedIds: ['foxiang-ge', 'shiqikong-bridge', 'paiyun-dian'],
   },
   {
@@ -58,14 +58,14 @@ export const attractions: Attraction[] = [
     tagline: '金光穿洞奇观，十七个桥洞',
     category: 'water',
     tags: ['水景', '桥梁建筑', '金光穿洞'],
-    heroImage: 'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=1200&h=800&fit=crop',
+    heroImage: '/十七孔桥.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1580974511814-1e6b4a0f6a9a?w=800&h=600&fit=crop',
+      '/十七孔桥.jpg',
+      '/十七孔桥桥面.jpg',
     ],
     cultureContent: {
-      history: '十七孔桥建于清乾隆年间，是昆明湖东岸与南湖岛之间的重要通道。桥长150米，宽8米，是园内最大的石桥。',
-      architecture: '桥身采用青石建成，共有17个桥洞。桥栏杆上雕刻有544只形态各异的石狮子。桥头还有两只栩栩如生的铜牛。',
+      history: '十七孔桥建于清乾隆年间，是昆明湖东岸与南湖岛之间的重要通道，也是前往南湖岛礼佛、游憩的必经之路。桥长150米，宽8米，17个桥洞以第9孔为最大，向两侧对称递减，符合中国传统"九"为至尊的礼制。1860年桥身及桥栏石刻部分被毁，光绪年间加固修复。每年冬至前后，太阳高度角最低，阳光以近似水平角度射入桥洞，形成"金光穿洞"奇观，每年仅出现约10天。',
+      architecture: '桥身采用青石砌筑，共有17个拱形桥洞。桥栏杆望柱上雕刻有544只形态各异的石狮子，大小不一、姿态万千——或抱球嬉戏、或静卧哺乳，无一雷同，与卢沟桥石狮并称"华北两大石狮群"。桥头各有一对镇水铜牛，铜牛背上刻有乾隆御笔《金牛铭》，铭文颂扬神牛镇水、河清海晏之功，兼具装饰与祈福功能。',
       significance: '十七孔桥是颐和园最具代表性的景观之一。每年冬至前后，夕阳西下时，阳光会穿过所有17个桥洞，形成著名的"金光穿洞"奇观，吸引无数游客和摄影爱好者。'
     },
     archives: {
@@ -74,7 +74,7 @@ export const attractions: Attraction[] = [
       builtYear: '乾隆年间',
       features: ['17个桥洞', '544只石狮子', '两只铜牛', '金光穿洞奇观'],
     },
-    coordinates: { x: 70, y: 60 },
+    coordinates: { x: 65, y: 53 },
     relatedIds: ['foxiang-ge', 'chang-lang', 'xiequ-garden'],
   },
   {
@@ -83,13 +83,13 @@ export const attractions: Attraction[] = [
     tagline: '慈禧庆寿之所，建筑群宏伟',
     category: 'building',
     tags: ['皇家建筑', '庆典场所', '慈禧太后'],
-    heroImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=800&fit=crop',
+    heroImage: '/paiyundian.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      '/paiyundian.jpg',
     ],
     cultureContent: {
-      history: '排云殿原名"大报恩延寿寺"，是乾隆为其母亲孝圣宪皇后祝寿而建。1860年被毁，光绪时期重建后改为现名。',
-      architecture: '排云殿为重檐歇山顶建筑，黄色琉璃瓦覆盖，彩画精美。殿前有金水河和玉带桥，建筑群依山势层层上升，气势恢宏。',
+      history: '排云殿原名"大报恩延寿寺"，是乾隆为其母亲孝圣宪皇后祝寿而建。1860年被毁，光绪时期重建后改为现名，作为慈禧太后接受群臣朝贺、举办庆寿典礼的场所。殿名取自晋代郭璞《游仙诗》"神仙排云出，但见金银台"，寓意众仙排开云层降临，为慈禧庆寿增添祥瑞色彩。寿庆时，光绪帝率众臣在此行三跪九叩大礼，礼仪规格等同皇宫大典。',
+      architecture: '排云殿为重檐歇山顶建筑，黄色琉璃瓦覆盖，和玺彩画精美。建筑群坐北朝南依山势而建，由排云门—金水桥—二宫门—排云殿—德辉殿—佛香阁构成完整序列，层层递进。殿内设紫檀雕龙宝座及御案，悬挂慈禧御笔"排云殿"匾和"大圆宝镜"匾。殿前有宽阔月台，两侧陈设铜龙、铜凤、铜鼎。',
       significance: '排云殿是颐和园万寿山前山建筑群的主体，是举行重大庆典活动的重要场所。殿名寓意"排除万难，云集吉祥"。'
     },
     archives: {
@@ -97,7 +97,7 @@ export const attractions: Attraction[] = [
       builtYear: '光绪十二年（1886年）',
       features: ['重檐歇山顶', '黄色琉璃瓦', '12根金柱', '依山而建'],
     },
-    coordinates: { x: 55, y: 35 },
+    coordinates: { x: 49, y: 14 },
     relatedIds: ['foxiang-ge', 'chang-lang', 'yishou-tang'],
   },
   {
@@ -106,14 +106,14 @@ export const attractions: Attraction[] = [
     tagline: '园中之园，荷塘假山精巧布局',
     category: 'garden',
     tags: ['园林精品', '园中之园', '江南风格'],
-    heroImage: 'https://images.unsplash.com/photo-1580974511814-1e6b4a0f6a9a?w=1200&h=800&fit=crop',
+    heroImage: '/xiequyuan.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1580974511814-1e6b4a0f6a9a?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1590041797636-eec0b58d099f?w=800&h=600&fit=crop',
+      '/xiequyuan.jpg',
+      '/foxiangge-new.jpg',
     ],
     cultureContent: {
-      history: '谐趣园始建于乾隆年间，是仿照无锡惠山寄畅园建造的园中之园。1860年被毁，光绪时期重建。',
-      architecture: '谐趣园占地约6000平方米，以荷池为中心，周围分布着楼、堂、亭、榭等建筑。园内有百间游廊，曲折幽深。',
+      history: '谐趣园始建于乾隆十六年（1751年），是乾隆下江南时对无锡惠山寄畅园的景致十分喜爱，命人仿其形制修建，原名"惠山园"。嘉庆十六年重修时，取"以物外之静趣，谐寸田之中和"之意，更名"谐趣园"。1860年被毁，光绪时期重建。',
+      architecture: '谐趣园占地约6000平方米，以荷池为中心，周围环绕涵远堂、知春堂、澄爽斋、湛清轩、知鱼桥、洗秋亭、饮绿亭等13座建筑，以百间游廊和曲桥串联，形成"三步一景、五步一折"的空间格局。涵远堂为园中主体建筑，面阔五间，歇山顶，原供慈禧休憩。知鱼桥为乾隆御题石桥，桥身低矮便于观鱼。洗秋亭、饮绿亭临水而建，荷池种植红莲白莲。建筑采用青瓦灰墙、白粉墙、花窗等江南园林元素，苏式彩画色彩淡雅。',
       significance: '谐趣园是颐和园中最具江南园林特色的景点，体现了"一峰则太华千寻，一勺则江湖万里"的造园理念。园名寓意"谐趣"，强调园林的趣味性和观赏性。'
     },
     archives: {
@@ -122,7 +122,7 @@ export const attractions: Attraction[] = [
       rebuiltYear: '光绪十七年（1891年）',
       features: ['荷池为中心', '百间游廊', '十三座建筑', '江南园林风格'],
     },
-    coordinates: { x: 60, y: 70 },
+    coordinates: { x: 82, y: 11 },
     relatedIds: ['shiqikong-bridge', 'qingyan-fang', 'deheyuan'],
   },
   {
@@ -131,13 +131,13 @@ export const attractions: Attraction[] = [
     tagline: '西洋风格石船建筑，中西合璧典范',
     category: 'building',
     tags: ['中西合璧', '独特建筑', '水上建筑'],
-    heroImage: 'https://images.unsplash.com/photo-1578469550956-0d16b69c6a3d?w=1200&h=800&fit=crop',
+    heroImage: '/qingyanfang.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1578469550956-0d16b69c6a3d?w=800&h=600&fit=crop',
+      '/qingyanfang.jpg',
     ],
     cultureContent: {
-      history: '石舫原建于乾隆年间，是一艘石造大船。1860年被毁，光绪时期重建，并加建了西洋风格的楼阁。',
-      architecture: '石舫全长36米，用大理石雕造。重建后在石船上建造了西式两层楼阁，采用白色壁柱、黄色玻璃窗和紫色窗户，顶部还建有凉亭。',
+      history: '石舫原建于乾隆二十年（1755年），取唐代魏征"水能载舟，亦能覆舟"治国理念而建，寓意政权稳固、江山永固。乾隆亲题"石舫"之名，亦取自《庄子》"饱食而遨游，泛若不系之舟"。1860年木结构舱楼被焚毁，仅存石质船身。光绪十九年重建时加建西式两层楼阁，取"河清海晏，天下太平"之意，命名"清晏舫"。',
+      architecture: '石舫全长36米，船体用整块大理石雕造，船身雕刻波浪纹，船头船尾各设石雕龙头龙尾。重建后在石船上建造了西式两层舱楼，采用白色大理石壁柱、黄色和紫色进口彩色玻璃窗（拼组成花卉几何图案，阳光照射室内呈现五彩光影）、西洋式宝瓶栏杆，顶部加建中式凉亭，形成"西体中用"的中西合璧风格。',
       significance: '清晏舫是颐和园中最具特色的建筑之一，代表了清代皇家园林中西合璧的建筑风格。"清晏"寓意"河清海晏"，象征天下太平。'
     },
     archives: {
@@ -147,7 +147,7 @@ export const attractions: Attraction[] = [
       rebuiltYear: '光绪十九年（1893年）',
       features: ['石造大船', '西洋风格楼阁', '白色壁柱', '黄色玻璃窗'],
     },
-    coordinates: { x: 30, y: 55 },
+    coordinates: { x: 17, y: 23 },
     relatedIds: ['xiequ-garden', 'yishou-tang', 'chang-lang'],
   },
   {
@@ -156,13 +156,13 @@ export const attractions: Attraction[] = [
     tagline: '慈禧寝宫，庭院玉兰闻名',
     category: 'building',
     tags: ['皇家寝宫', '玉兰名树', '慈禧太后'],
-    heroImage: 'https://images.unsplash.com/photo-1590041797636-eec0b58d099f?w=1200&h=800&fit=crop',
+    heroImage: '/leshoutang.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1590041797636-eec0b58d099f?w=800&h=600&fit=crop',
+      '/leshoutang.jpg',
     ],
     cultureContent: {
-      history: '乐寿堂建于乾隆年间，原为乾隆帝的寝宫。1860年被毁，光绪时期重建后改为慈禧太后的寝宫。',
-      architecture: '乐寿堂为七间歇山顶建筑，黄色琉璃瓦覆盖。堂前庭院中有著名的玉兰树，已有200多年历史。堂内陈设保持原状，展示皇家生活场景。',
+      history: '乐寿堂建于乾隆十六年（1751年），原为乾隆帝的寝宫及侍奉母亲孝圣宪皇后休息之所。因乾隆之母信佛，堂的上层布置成佛堂供其烧香膜拜。名称取自《论语》"知者乐，仁者寿"。1860年被毁，光绪时期重建后改为慈禧太后的寝宫，是慈禧在颐和园中居住时间最长的场所，她每日在此处理朝政、接见大臣，光绪帝每日必至此问安。',
+      architecture: '乐寿堂为七间歇山顶建筑，前后出廊，黄色琉璃瓦覆盖。慈禧重建时改为单层建筑，重新置办的陈设极为堂皇。据光绪二十八年陈设册记录，堂内共有古铜器223件、瓷器223件、硬木家具178件、天字号陈设248件，总计872件陈设物品。堂内中央设紫檀雕龙宝座御案，宝座后列象牙螺钿镶嵌玻璃镜屏风，两侧插列孔雀羽毛掌扇。慈禧偏爱室内各式自鸣钟和穿衣镜，"各式钟表叮叮咚咚的响声对慈禧起催眠作用"。门内两侧有金星紫檀鱼桌，桌内镶嵌象牙和檀木雕镂的亭台楼阁、山水人物，可放养金鱼。堂前庭院种植白玉兰、紫玉兰、西府海棠，誉为"玉堂富贵"，树龄超200年。院中设青铜水缸4只用于防火。',
       significance: '乐寿堂是颐和园中最重要的宫殿建筑之一，见证了清代晚期的宫廷生活。堂前庭院的玉兰树是北京市最古老的玉兰树之一，每年春季花开时节，吸引大量游客前来观赏。'
     },
     archives: {
@@ -170,7 +170,7 @@ export const attractions: Attraction[] = [
       rebuiltYear: '光绪十七年（1891年）',
       features: ['七间歇山顶', '百年玉兰树', '皇家寝宫', '原状陈列'],
     },
-    coordinates: { x: 40, y: 45 },
+    coordinates: { x: 68, y: 14 },
     relatedIds: ['paiyun-dian', 'qingyan-fang', 'deheyuan'],
   },
   {
@@ -179,13 +179,13 @@ export const attractions: Attraction[] = [
     tagline: '清代三大戏台之一，戏曲艺术殿堂',
     category: 'building',
     tags: ['戏曲文化', '清代建筑', '表演艺术'],
-    heroImage: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1200&h=800&fit=crop',
+    heroImage: '/deheyuan.jpg',
     gallery: [
-      'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=800&h=600&fit=crop',
+      '/deheyuan.jpg',
     ],
     cultureContent: {
-      history: '德和园大戏楼建于光绪年间，专为慈禧太后观看戏曲而建。与畅音阁、寿膳房并称为清代三大戏楼。',
-      architecture: '戏楼为三层建筑，高21米，底层舞台宽17米。顶层设有绞车、索道等机关设备，可以表现升天、入地等戏剧效果。',
+      history: '德和园大戏楼建于光绪十七年（1891年），是为慈禧太后看戏而修建，历时4年建成。与故宫畅音阁、承德避暑山庄清音阁并称为清代三大戏楼。其名称取自《诗经》"德和，谓乐之和也"，寓意戏曲能使人心境平和、道德和顺。慈禧晚年酷爱听戏，常驻跸颐和园时，每三五日即演一次，在德和园演出的大量戏曲推动了京剧艺术的成熟与精进。',
+      architecture: '戏楼为三层建筑，高21米，分别名为福台（上层）、禄台（中层）、寿台（下层），对应"福禄寿"三星。底层寿台宽17米、深16米，天花板设天井可吊放布景人物，台板下设地井内藏绞车索道，可实现"升天""入地"舞台效果，地井还可蓄水表演水法场景。戏楼采用穹顶结构，舞台后方设音壁增强混响，不用扩音设备百米外仍清晰可闻。三层舞台可同时演出，最多容纳300名演员。戏楼对面为面阔七间的颐乐殿，是慈禧看戏之所，殿前设看戏廊，王公大臣按品级排列陪看。',
       significance: '德和园大戏楼是清代戏曲艺术的重要见证，代表了当时戏剧舞台的最高水平。楼内经常举办传统戏曲演出，让游客感受中国传统戏曲的魅力。'
     },
     archives: {
@@ -193,7 +193,7 @@ export const attractions: Attraction[] = [
       builtYear: '光绪十七年（1891年）',
       features: ['三层建筑', '宽17米舞台', '机关设备', '清代三大戏楼之一'],
     },
-    coordinates: { x: 48, y: 55 },
+    coordinates: { x: 75, y: 14 },
     relatedIds: ['yishou-tang', 'xiequ-garden', 'paiyun-dian'],
   },
 ];

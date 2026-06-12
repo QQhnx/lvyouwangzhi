@@ -10,17 +10,17 @@ export const seasons: Season[] = [
       {
         title: '西堤桃柳',
         description: '西堤两岸桃红柳绿，桃花盛开时节宛若仙境。堤上六桥造型各异，与桃柳相映成趣。',
-        image: 'https://images.unsplash.com/photo-1584478988685-c8f20a8a6b68?w=600&h=400&fit=crop',
+        image: '/春.jpg',
       },
       {
         title: '知春亭山桃',
         description: '知春亭周围的山桃树已有百年历史，春季花开时节，满树繁花，美不胜收。',
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop',
+        image: '/春.jpg',
       },
       {
         title: '昆明湖冰消',
         description: '春季气温回升，昆明湖冰面逐渐消融，湖光山色重新焕发生机。',
-        image: 'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=600&h=400&fit=crop',
+        image: '/春.jpg',
       },
     ],
     bestTime: '3月下旬至4月中旬',
@@ -40,17 +40,17 @@ export const seasons: Season[] = [
       {
         title: '谐趣园荷花',
         description: '谐趣园荷塘中荷花盛开，粉白相间，清香四溢。荷叶田田，鱼戏莲叶间。',
-        image: 'https://images.unsplash.com/photo-1580974511814-1e6b4a0f6a9a?w=600&h=400&fit=crop',
+        image: '/夏.jpg',
       },
       {
         title: '昆明湖泛舟',
         description: '夏季可以乘坐龙舟或游船游览昆明湖，从湖面欣赏万寿山和佛香阁的壮丽景色。',
-        image: 'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=600&h=400&fit=crop',
+        image: '/昆明湖畔.jpg',
       },
       {
         title: '长廊听雨',
         description: '雨天漫步长廊，听雨打廊檐，别有一番意境。雨中长廊彩画更显灵动。',
-        image: 'https://images.unsplash.com/photo-1598977123118-4e30ba3c4f5b?w=600&h=400&fit=crop',
+        image: '/长廊内部视角.jpg',
       },
     ],
     bestTime: '6月至8月',
@@ -70,17 +70,17 @@ export const seasons: Season[] = [
       {
         title: '万寿山丹枫',
         description: '秋天万寿山的枫叶红了，层层叠叠，色彩斑斓，与古建筑相映成趣。',
-        image: '/foxiangge-new.jpg',
+        image: '/秋.png',
       },
       {
         title: '满园桂香',
         description: '秋季桂花盛开，满园飘香。乐寿堂前的古玉兰树在秋天也格外静美。',
-        image: 'https://images.unsplash.com/photo-1590041797636-eec0b58d099f?w=600&h=400&fit=crop',
+        image: '/秋.png',
       },
       {
         title: '金光穿洞',
         description: '每年秋分前后，夕阳西下时，阳光穿过十七孔桥的所有桥洞，形成著名的"金光穿洞"奇观。',
-        image: 'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=600&h=400&fit=crop',
+        image: '/秋.png',
       },
     ],
     bestTime: '9月下旬至11月中旬',
@@ -100,17 +100,17 @@ export const seasons: Season[] = [
       {
         title: '佛香阁雪景',
         description: '雪后的佛香阁红墙金瓦白雪，色彩鲜明，宛如一幅中国水墨画。',
-        image: '/foxiangge-new.jpg',
+        image: '/冬.jpg',
       },
       {
         title: '昆明湖冰场',
         description: '冬季昆明湖结冰后开放冰场，可以体验滑冰、冰车等冰雪运动。',
-        image: 'https://images.unsplash.com/photo-1590041264786-0d8e37ac6ef4?w=600&h=400&fit=crop',
+        image: '/冬.jpg',
       },
       {
         title: '踏雪寻梅',
         description: '雪天漫步园中，脚下积雪咯吱作响，别有一番情趣。乐寿堂前的玉兰树也是赏雪的好去处。',
-        image: 'https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=600&h=400&fit=crop',
+        image: '/冬.jpg',
       },
     ],
     bestTime: '12月至2月',

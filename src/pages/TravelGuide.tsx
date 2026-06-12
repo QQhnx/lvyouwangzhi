@@ -1,14 +1,10 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { GuideCategory, GuideItem } from '../types';
+import { GuideCategory } from '../types';
 import { guideItems, faqItems } from '../data/guide';
 import { Train, Bus, Car, Ticket, Utensils, Coffee, Cake, Building2, Home, Gift, ShoppingBag } from 'lucide-react';
 
-interface TravelGuideProps {
-  onCategoryChange?: (category: GuideCategory) => void;
-}
-
-const TravelGuide = ({ onCategoryChange }: TravelGuideProps) => {
+const TravelGuide = () => {
   const [selectedCategory, setSelectedCategory] = useState<GuideCategory | 'all'>('all');
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
 

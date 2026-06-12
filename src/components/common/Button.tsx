@@ -19,12 +19,12 @@ const Button = ({
   type = 'button',
   disabled = false,
 }: ButtonProps) => {
-  const baseStyles = 'font-medium rounded-lg transition-all duration-300 inline-flex items-center justify-center';
+  const baseStyles = 'font-medium rounded-lg transition-all duration-300 inline-flex items-center justify-center font-serif';
 
   const variantStyles = {
     primary: 'btn-primary',
     secondary: 'btn-secondary',
-    ghost: 'text-primary hover:text-primary-light hover:underline',
+    ghost: 'text-accent hover:text-gold hover:underline',
   };
 
   const sizeStyles = {

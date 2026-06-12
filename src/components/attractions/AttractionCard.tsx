@@ -9,16 +9,14 @@ interface AttractionCardProps {
 
 const AttractionCard = ({ attraction, isActive = false }: AttractionCardProps) => {
   return (
-    <motion.div
-      whileHover={isActive ? { y: -12 } : {}}
-      transition={{ duration: 0.3 }}
-      className="relative w-full h-full min-h-[400px] overflow-hidden shadow-card hover:shadow-card-hover transition-shadow duration-300 cursor-pointer group"
+    <div
+      className="relative w-full h-full min-h-[400px] overflow-hidden shadow-card cursor-pointer"
     >
       <div className="absolute inset-0">
         <img
           src={attraction.heroImage}
           alt={attraction.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-full object-cover"
         />
       </div>
       
@@ -44,12 +42,12 @@ const AttractionCard = ({ attraction, isActive = false }: AttractionCardProps) =
           {attraction.tagline}
         </p>
         
-        <div className="flex items-center text-white/60 text-base md:text-lg group-hover:text-white transition-colors">
+        <div className="flex items-center text-white/60 text-base md:text-lg">
           <span>点击查看详情</span>
-          <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-2 transition-transform" />
+          <ArrowRight className="w-5 h-5 ml-2" />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 };
 
