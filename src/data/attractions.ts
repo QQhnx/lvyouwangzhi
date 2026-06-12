@@ -10,7 +10,7 @@ export const attractions: Attraction[] = [
     heroImage: '/foxiangge-new.jpg',
     gallery: [
       '/foxiangge-new.jpg',
-      '/佛香阁.jpg',
+      '/foxiangge.jpg',
       '/fogege.jpg',
     ],
     cultureContent: {
@@ -32,10 +32,10 @@ export const attractions: Attraction[] = [
     tagline: '世界最长画廊，彩画精美绝伦',
     category: 'building',
     tags: ['世界最长', '彩画', '世界文化遗产'],
-    heroImage: '/长廊内部视角.jpg',
+    heroImage: '/changlang-interior.jpg',
     gallery: [
-      '/长廊内部视角.jpg',
-      '/昆明湖畔.jpg',
+      '/changlang-interior.jpg',
+      '/kunming-lake.jpg',
     ],
     cultureContent: {
       history: '长廊始建于乾隆十五年，最初是乾隆为其母孝圣宪皇后遮阳避雨而建。乾隆六下江南，因母亲钮祜禄氏畏晒，命人沿昆明湖北岸修建遮荫走廊，仿江南游廊形制。1860年被英法联军焚毁，光绪时期重建，耗时6年完成，廊间彩画大幅增加。全长728米，共273间。',
@@ -58,10 +58,10 @@ export const attractions: Attraction[] = [
     tagline: '金光穿洞奇观，十七个桥洞',
     category: 'water',
     tags: ['水景', '桥梁建筑', '金光穿洞'],
-    heroImage: '/十七孔桥.jpg',
+    heroImage: '/shiqikong-bridge.jpg',
     gallery: [
-      '/十七孔桥.jpg',
-      '/十七孔桥桥面.jpg',
+      '/shiqikong-bridge.jpg',
+      '/shiqikong-bridge-deck.jpg',
     ],
     cultureContent: {
       history: '十七孔桥建于清乾隆年间，是昆明湖东岸与南湖岛之间的重要通道，也是前往南湖岛礼佛、游憩的必经之路。桥长150米，宽8米，17个桥洞以第9孔为最大，向两侧对称递减，符合中国传统"九"为至尊的礼制。1860年桥身及桥栏石刻部分被毁，光绪年间加固修复。每年冬至前后，太阳高度角最低，阳光以近似水平角度射入桥洞，形成"金光穿洞"奇观，每年仅出现约10天。',
