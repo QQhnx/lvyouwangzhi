@@ -2,12 +2,13 @@ import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../common/Button';
+import { getImageUrl } from '../../utils/helpers';
 
 const HeroSection = () => {
   return (
     <section id="hero" className="relative h-screen overflow-hidden">
       <img
-        src="/foxiangge.jpg"
+        src={getImageUrl('/foxiangge.jpg')}
         alt="佛香阁"
         className="absolute inset-0 w-full h-full object-cover"
       />

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Season } from '../../types';
 import { Camera, Clock, Sun, Cloud, Leaf, Snowflake } from 'lucide-react';
+import { getImageUrl } from '../../utils/helpers';
 
 interface SeasonTabsProps {
   seasons: Season[];
@@ -63,7 +64,7 @@ const SeasonTabs = ({ seasons, currentSeason, onSeasonChange }: SeasonTabsProps)
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div className="rounded-xl overflow-hidden order-1">
               <img
-                src={currentSeason.highlights[0].image}
+                src={getImageUrl(currentSeason.highlights[0].image)}
                 alt={currentSeason.highlights[0].title}
                 className="w-full aspect-[4/3] object-cover"
               />

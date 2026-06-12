@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Attraction, AttractionCategory } from '../../types';
+import { getImageUrl } from '../../utils/helpers';
 
 interface InteractiveMapProps {
   attractions: Attraction[];
@@ -66,7 +67,7 @@ const MarkerIcon = ({ type, color }: { type: AttractionCategory; color: string }
 /* ── 颐和园俯视图底图 ── */
 const SummerPalaceMap = () => (
   <img
-    src="/map-aerial.png"
+    src={getImageUrl('/map-aerial.png')}
     alt="颐和园俯视图"
     className="w-full h-full object-contain"
   />
@@ -134,7 +135,7 @@ const InteractiveMap = ({ attractions, onAttractionClick }: InteractiveMapProps)
                 className="absolute inset-0"
               >
                 <img
-                  src={selected.heroImage}
+                  src={getImageUrl(selected.heroImage)}
                   alt={selected.name}
                   className="w-full h-full object-cover"
                 />

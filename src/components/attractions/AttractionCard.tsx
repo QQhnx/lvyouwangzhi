@@ -1,5 +1,6 @@
 import { Attraction } from '../../types';
 import { ArrowRight } from 'lucide-react';
+import { getImageUrl } from '../../utils/helpers';
 
 interface AttractionCardProps {
   attraction: Attraction;
@@ -13,7 +14,7 @@ const AttractionCard = ({ attraction }: AttractionCardProps) => {
     >
       <div className="absolute inset-0">
         <img
-          src={attraction.heroImage}
+          src={getImageUrl(attraction.heroImage)}
           alt={attraction.name}
           className="w-full h-full object-cover"
         />

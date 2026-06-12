@@ -44,3 +44,9 @@ export const truncateText = (text: string, maxLength: number): string => {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + '...';
 };
+
+export const getImageUrl = (path: string): string => {
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  const base = import.meta.env.BASE_URL || '/';
+  return base.endsWith('/') ? base + cleanPath : base + '/' + cleanPath;
+};

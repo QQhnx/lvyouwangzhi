@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, MapPin, Calendar, Ruler, Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useAttractionStore } from '../../store/attractionStore';
 import Button from '../common/Button';
+import { getImageUrl } from '../../utils/helpers';
 
 const AttractionDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -32,7 +33,7 @@ const AttractionDetail = () => {
     .filter(Boolean);
 
   const bgImage = (img: string) => ({
-    backgroundImage: `url(${img})`,
+    backgroundImage: `url(${getImageUrl(img)})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
   });
