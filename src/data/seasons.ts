@@ -10,17 +10,17 @@ export const seasons: Season[] = [
       {
         title: '西堤桃柳',
         description: '西堤两岸桃红柳绿，桃花盛开时节宛若仙境。堤上六桥造型各异，与桃柳相映成趣。',
-        image: '/春.jpg',
+        image: '/spring.jpg',
       },
       {
         title: '知春亭山桃',
         description: '知春亭周围的山桃树已有百年历史，春季花开时节，满树繁花，美不胜收。',
-        image: '/春.jpg',
+        image: '/spring.jpg',
       },
       {
         title: '昆明湖冰消',
         description: '春季气温回升，昆明湖冰面逐渐消融，湖光山色重新焕发生机。',
-        image: '/春.jpg',
+        image: '/spring.jpg',
       },
     ],
     bestTime: '3月下旬至4月中旬',
@@ -40,17 +40,17 @@ export const seasons: Season[] = [
       {
         title: '谐趣园荷花',
         description: '谐趣园荷塘中荷花盛开，粉白相间，清香四溢。荷叶田田，鱼戏莲叶间。',
-        image: '/夏.jpg',
+        image: '/summer.jpg',
       },
       {
         title: '昆明湖泛舟',
         description: '夏季可以乘坐龙舟或游船游览昆明湖，从湖面欣赏万寿山和佛香阁的壮丽景色。',
-        image: '/昆明湖畔.jpg',
+        image: '/summer.jpg',
       },
       {
         title: '长廊听雨',
         description: '雨天漫步长廊，听雨打廊檐，别有一番意境。雨中长廊彩画更显灵动。',
-        image: '/长廊内部视角.jpg',
+        image: '/summer.jpg',
       },
     ],
     bestTime: '6月至8月',
@@ -70,17 +70,17 @@ export const seasons: Season[] = [
       {
         title: '万寿山丹枫',
         description: '秋天万寿山的枫叶红了，层层叠叠，色彩斑斓，与古建筑相映成趣。',
-        image: '/秋.png',
+        image: '/autumn.png',
       },
       {
         title: '满园桂香',
         description: '秋季桂花盛开，满园飘香。乐寿堂前的古玉兰树在秋天也格外静美。',
-        image: '/秋.png',
+        image: '/autumn.png',
       },
       {
         title: '金光穿洞',
         description: '每年秋分前后，夕阳西下时，阳光穿过十七孔桥的所有桥洞，形成著名的"金光穿洞"奇观。',
-        image: '/秋.png',
+        image: '/autumn.png',
       },
     ],
     bestTime: '9月下旬至11月中旬',
@@ -100,17 +100,17 @@ export const seasons: Season[] = [
       {
         title: '佛香阁雪景',
         description: '雪后的佛香阁红墙金瓦白雪，色彩鲜明，宛如一幅中国水墨画。',
-        image: '/冬.jpg',
+        image: '/winter.jpg',
       },
       {
         title: '昆明湖冰场',
         description: '冬季昆明湖结冰后开放冰场，可以体验滑冰、冰车等冰雪运动。',
-        image: '/冬.jpg',
+        image: '/winter.jpg',
       },
       {
         title: '踏雪寻梅',
         description: '雪天漫步园中，脚下积雪咯吱作响，别有一番情趣。乐寿堂前的玉兰树也是赏雪的好去处。',
-        image: '/冬.jpg',
+        image: '/winter.jpg',
       },
     ],
     bestTime: '12月至2月',
