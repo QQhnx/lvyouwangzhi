@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { Attraction } from '../../types';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,7 +6,7 @@ interface AttractionCardProps {
   isActive?: boolean;
 }
 
-const AttractionCard = ({ attraction, isActive = false }: AttractionCardProps) => {
+const AttractionCard = ({ attraction }: AttractionCardProps) => {
   return (
     <div
       className="relative w-full h-full min-h-[400px] overflow-hidden shadow-card cursor-pointer"

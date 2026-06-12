@@ -90,9 +90,6 @@ const CardStack = ({ attractions, onCardClick }: CardStackProps) => {
     const isTopEdge = mouseY < edgeMargin;
     const isBottomEdge = mouseY > rect.height - edgeMargin;
     
-    // 检查卡片是否完全显示（从顶部到底部都在视口中）
-    const isCardBottomAligned = rect.bottom <= window.innerHeight + 1;
-    
     // 优先级：卡片边缘滑动功能 > 卡片底部锁定
     if (isTopEdge || isBottomEdge) {
       return;
