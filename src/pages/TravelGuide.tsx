@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { GuideCategory } from '../types';
 import { guideItems, faqItems } from '../data/guide';
@@ -172,18 +173,18 @@ const TravelGuide = () => {
               无论是历史爱好者、摄影达人还是家庭出游，颐和园都能给您带来难忘的体验
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a
-                href="/"
+              <Link
+                to="/"
                 className="px-8 py-3 bg-white text-primary rounded-lg font-medium hover:bg-gray-100 transition-colors"
               >
                 开始游览
-              </a>
-              <a
-                href="/map"
+              </Link>
+              <Link
+                to="/map"
                 className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-primary transition-colors"
               >
                 查看地图
-              </a>
+              </Link>
             </div>
           </motion.div>
         </section>

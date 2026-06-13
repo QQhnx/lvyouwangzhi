@@ -147,7 +147,7 @@ export const attractions: Attraction[] = [
       rebuiltYear: '光绪十九年（1893年）',
       features: ['石造大船', '西洋风格楼阁', '白色壁柱', '黄色玻璃窗'],
     },
-    coordinates: { x: 17, y: 23 },
+    coordinates: { x: 38, y: 20 },
     relatedIds: ['xiequ-garden', 'yishou-tang', 'chang-lang'],
   },
   {

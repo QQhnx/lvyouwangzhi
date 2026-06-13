@@ -14,7 +14,7 @@ function HomePage() {
   const { attractions, seasons, currentSeason, setCurrentSeason } = useAttractionStore();
 
   const handleCardClick = (id: string) => {
-    window.open(`/attraction/${id}`, '_blank');
+    window.open(`${import.meta.env.BASE_URL}#/attraction/${id}`, '_blank');
   };
 
   return (
@@ -50,7 +50,7 @@ function MapPage() {
   const { attractions } = useAttractionStore();
 
   const handleAttractionClick = (id: string) => {
-    window.open(`/attraction/${id}`, '_blank');
+    window.open(`${import.meta.env.BASE_URL}#/attraction/${id}`, '_blank');
   };
 
   return (
