@@ -67,7 +67,7 @@ function MapPage() {
 
 function App() {
   return (
-    <HashRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter>
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <main className="flex-grow w-full">
