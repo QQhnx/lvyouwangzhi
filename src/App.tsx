@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Navigation from './components/common/Navigation';
 import Footer from './components/common/Footer';
@@ -67,7 +67,7 @@ function MapPage() {
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <HashRouter basename={import.meta.env.BASE_URL}>
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <main className="flex-grow w-full">
@@ -82,7 +82,7 @@ function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
